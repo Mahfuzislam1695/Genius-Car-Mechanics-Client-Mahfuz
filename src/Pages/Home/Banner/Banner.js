@@ -1,50 +1,62 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import banner1 from '../../../images/banner/banner1.jpg';
-import banner2 from '../../../images/banner/banner2.jpg';
-import banner3 from '../../../images/banner/banner3.jpg';
+import img1 from '../../../assets/images/banner/1.jpg';
+import img2 from '../../../assets/images/banner/2.jpg';
+import img3 from '../../../assets/images/banner/3.jpg';
+import img4 from '../../../assets/images/banner/4.jpg';
+import img5 from '../../../assets/images/banner/5.jpg';
+import img6 from '../../../assets/images/banner/6.jpg';
+import BannerItem from './BannerItem';
+
+const bannerData = [
+    {
+        image: img1,
+        prev: 6,
+        id: 1,
+        next: 2
+    },
+    {
+        image: img2,
+        prev: 1,
+        id: 2,
+        next: 3
+    },
+    {
+        image: img3,
+        prev: 2,
+        id: 3,
+        next: 4
+    },
+    {
+        image: img4,
+        prev: 3,
+        id: 4,
+        next: 5
+    },
+    {
+        image: img5,
+        prev: 4,
+        id: 5,
+        next: 6
+    },
+    {
+        image: img6,
+        prev: 5,
+        id: 6,
+        next: 1
+    }
+]
 
 const Banner = () => {
     return (
-        <>
-            <Carousel>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={banner1}
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={banner2}
-                        alt="Second slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={banner3}
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-        </>
+        <div className="carousel w-full py-10">
+            {
+                bannerData.map(slide => <BannerItem
+                    key={slide.id}
+                    slide={slide}
+                ></BannerItem>)
+            }
+            
+        </div>
     );
 };
 
